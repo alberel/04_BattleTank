@@ -21,6 +21,10 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+private:
 	//Has tank move barrel to aim at point where crosshair intersects world
 	void AimTowardsCrosshair();
+
+	// Return and OUT parameter, true if hit landscape
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
 };
