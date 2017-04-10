@@ -2,6 +2,7 @@
 
 
 #include "BattleTank.h"
+#include "TankTurret.h"
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
@@ -16,8 +17,15 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
+void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
+{
+	if (!TurretToSet) { return; }
+	Turret = TurretToSet;
+}
+
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
+	if (!BarrelToSet) { return; }
 	Barrel = BarrelToSet;
 }
 
@@ -41,15 +49,8 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	if(bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
+		Turret->MoveTo(AimDirection.Rotation().Yaw);
 		Barrel->MoveTo(AimDirection.Rotation().Pitch);
-
-		//auto Time = GetWorld()->GetTimeSeconds();
-		//UE_LOG(LogTemp, Warning, TEXT("%f : Aim solution found."), Time);
-	}
-	else 
-	{
-		//auto Time = GetWorld()->GetTimeSeconds();
-		//UE_LOG(LogTemp, Warning, TEXT("%f : NO aim solution found."), Time);
 	}
 	// If no solution found do nothing
 }
