@@ -3,8 +3,8 @@
 #include "BattleTank.h"
 #include "TankBarrel.h"
 
-void UTankBarrel::ElevateBarrel(float DegreesPerSecond)
+void UTankBarrel::MoveTo(float Pitch)
 {
 	// Move the barrel the right amount this frame given max elevation speed and framerate
-	UE_LOG(LogTemp, Warning, TEXT("ElevateBarrel() called at speed %f"), DegreesPerSecond);
+	UE_LOG(LogTemp, Warning, TEXT("Barrel moving towards pitch: %f"), Pitch);
 }
