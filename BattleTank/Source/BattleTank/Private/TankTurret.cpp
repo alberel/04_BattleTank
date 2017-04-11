@@ -10,8 +10,6 @@ void UTankTurret::MoveTo(float Yaw)
 	auto YawChange = FMath::Clamp(Yaw - RelativeRotation.Yaw, -MaxDegreesThisFrame, MaxDegreesThisFrame);
 	auto NewYaw = RelativeRotation.Yaw + YawChange;
 
-	UE_LOG(LogTemp, Warning, TEXT("Turret yaw at: %f"), NewYaw);
-
 	SetRelativeRotation(FRotator(0, NewYaw, 0));
 }
 
