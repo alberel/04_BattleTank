@@ -20,9 +20,11 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
-private:
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
 
+private:
 	//Has tank move barrel to aim at point where crosshair intersects world
 	void AimTowardsCrosshair();
 
