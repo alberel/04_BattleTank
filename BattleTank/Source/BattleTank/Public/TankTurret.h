@@ -17,6 +17,6 @@ public:
 	void MoveTo(float Yaw);
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float MaxDegreesPerSecond = 25.f;	
 };
