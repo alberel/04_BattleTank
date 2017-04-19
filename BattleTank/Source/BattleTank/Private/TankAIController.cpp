@@ -3,6 +3,7 @@
 #include "BattleTank.h"
 #include "Tank.h"
 #include "TankAIController.h"
+// Depends on movement component via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
@@ -20,7 +21,7 @@ void ATankAIController::Tick(float DeltaTime)
 
 	if (ensure(PlayerTank))
 	{
-		// TODO Move towards the player
+		// Move towards the player
 		MoveToActor(PlayerTank, AcceptanceRadius); // TODO Check radius in cm
 
 		// Aim towards the player
